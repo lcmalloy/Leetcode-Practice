@@ -3,16 +3,13 @@
  * @return {number}
  */
 var climbStairs = function(n) {
-    //fibinaci sequence
-    if (n === 1) {
-        return 1;
+    let nSteps = {};
+    for (let i = 0; i <= n; i++) {
+        if (i < 3) {
+            nSteps[i] = i;
+        } else {
+            nSteps[i] = nSteps[i - 2] + nSteps[i - 1];
+        }
     }
-    let first = 1,
-        second = 2;
-    for (let i = 3; i <= n; i++) {
-        let third = first + second;
-        first = second;
-        second = third; 
-    }
-    return second; 
+    return nSteps[n];
 };
