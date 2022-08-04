@@ -4,15 +4,24 @@
  * @return {boolean}
  */
 var isAnagram = function(s, t) {
-   const word1 = s.split('').sort();
-   const word2 = t.split('').sort();
-    if (word1.length !== word2.length) {
-        return false; 
+    let word1 = {};
+    
+    if (s.length !== t.length) {
+        return false;
     }
-    for (let i = 0; i < word1.length; i++) {
-        if(word1[i] !== word2[i]) {
+    
+    for (let i = 0; i < s.length; i++) {
+        let currentLetter = s[i];
+        if (!word1[currentLetter]) {
+            word1[currentLetter] = 0;
+        }
+        word1[currentLetter] += 1;
+    }
+    for (let letter of t) {
+        if (word1[letter] === 0 || word1[letter] === undefined) {
             return false;
         }
+        word1[letter] -= 1;
     }
-    return true; 
+    return true;
 };
