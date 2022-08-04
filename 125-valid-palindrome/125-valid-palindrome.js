@@ -3,13 +3,12 @@
  * @return {boolean}
  */
 var isPalindrome = function(s) {
-    let arr = s.split('');
-    let result = []
-    let alphabet = '0123456789abcdefghijklmnopqrstuvwxyz'
-    for (let i of arr) {
-    if (alphabet.includes(i.toLowerCase())) {
-      result.push(i.toLowerCase());
+    let filteredWord = s.replace(/[^0-9a-z]/gi, '').toLowerCase();
+    let reverse = s.replace(/[^0-9a-z]/gi, '').toLowerCase().split('').reverse().join('');
+    
+    console.log(reverse);
+    if (filteredWord === reverse) {
+        return true;
     }
-  }
-    return (result.join('') === result.reverse().join(''));
+    return false; 
 };
