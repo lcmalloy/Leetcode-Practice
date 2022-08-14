@@ -17,4 +17,9 @@ var coinChange = function(coins, amount) {
         }
     }
     return table[table.length-1] === Infinity ? -1 : table[table.length-1]; 
+
 };
+
+
+
+
