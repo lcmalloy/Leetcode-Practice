@@ -15,7 +15,7 @@ MinStack.prototype.push = function(val) {
  * @return {void}
  */
 MinStack.prototype.pop = function() {
-    this.stack.pop()
+    this.stack.pop();
 };
 
 /**
