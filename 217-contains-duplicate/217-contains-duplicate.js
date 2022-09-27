@@ -3,14 +3,20 @@
  * @return {boolean}
  */
 var containsDuplicate = function(nums) {
-    nums.sort((a, b) => a - b);
-    
-    for (let i = 0; i < nums.length; i++) {
-        for (let j = i + 1; j < nums.length; j++) {
-            if (nums[i] === nums[j]) {
-                return true;
-            }
+    let reoccurence = {};
+    let result = false;
+    nums.forEach((val) => {
+        if (!reoccurence[val]) {
+            reoccurence[val] = 0;
         }
-    }
-    return false; 
+        reoccurence[val] += 1;
+    });
+    
+    let eachOccur = Object.values(reoccurence);
+    eachOccur.forEach((num) => {
+        if (num !== 1) {
+            result = true;
+        }
+    });
+    return result;
 };
