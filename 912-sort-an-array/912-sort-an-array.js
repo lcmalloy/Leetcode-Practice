@@ -12,14 +12,14 @@ var sortArray = function(nums) {
     
     function merge(left, right) {
         let result = [], lLen = left.length, rLen = right.length, lIndex = 0, rIndex = 0;
-        while (lIndex <lLen && rIndex < rLen) {
+        while (lIndex < lLen && rIndex < rLen) {
             if (left[lIndex] < right[rIndex]) {
-                result.push(left[lIndex++])
+                result.push(left[lIndex++]);
             } else {
-                result.push(right[rIndex++])
+                result.push(right[rIndex++]);
             }
         }
-        return result.concat(left.slice(lIndex).concat(right.slice(rIndex)));
+        return result.concat(left.slice(lIndex)).concat(right.slice(rIndex));
     }
     return merge(sortArray(left), sortArray(right));
 };
