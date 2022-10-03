@@ -14,24 +14,22 @@ var reverseOddLevels = function(root) {
     if (root === null) {
         return root;
     }
-    traverse(root.left, root.right, 1);
+    
+    function swapOdds(left, right, level) {
+        if (left === null) {
+            return;
+        }
+        if (right === null) {
+            return;
+        }
+        if (level % 2 === 1) {
+            let temp = left.val;
+            left.val = right.val;
+            right.val = temp;
+        }
+        swapOdds(left.left, right.right, level + 1);
+        swapOdds(left.right, right.left, level + 1);
+    }
+    swapOdds(root.left, root.right, 1);
     return root;
 };
-
-function traverse(leftNode, rightNode, level) {
-    if (leftNode === null) {
-        return;
-    }
-    if (rightNode === null) {
-        return;
-    }
-    
-    if (level % 2 === 1) {
-        let temp = leftNode.val;
-        leftNode.val = rightNode.val;
-        rightNode.val = temp;
-    }
-    
-    traverse(leftNode.left, rightNode.right, level + 1);
-    traverse(rightNode.left, leftNode.right, level + 1);
-}
