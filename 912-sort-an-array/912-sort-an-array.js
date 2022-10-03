@@ -9,7 +9,8 @@ var sortArray = function(nums) {
     let middle = Math.floor(nums.length / 2),
         left = nums.slice(0, middle),
         right = nums.slice(middle);
-    function merge(left, right) {
+    
+    function merge(left,  right) {
         let result = [], lLen = left.length, rLen = right.length, lIndex = 0, rIndex = 0;
         while (lIndex < lLen && rIndex < rLen) {
             if (left[lIndex] < right[rIndex]) {
