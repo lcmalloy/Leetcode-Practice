@@ -7,23 +7,24 @@ var convert = function(s, numRows) {
     if (numRows === 1) {
         return s;
     }
-    let forward = true;
     let result = [];
-    let counter = 1;
+    
     for (let i = 0; i < numRows; i++) {
         result.push('');
     }
-    //['', '', '']
+    //result ['', '', '']
+    
+    let forward = true;
+    let position = 1;
+    
     for (let i = 0; i < s.length; i++) {
-        result[counter-1] += s[i];
-        if (counter === numRows) {
+        result[position - 1] += s[i];
+        if (position === numRows) {
             forward = false;
-        } else if (counter === 1) {
+        } else if (position === 1) {
             forward = true;
         }
-        counter = forward ? counter + 1 : counter - 1;
+        position = forward ? position + 1 : position - 1;
     }
-    
     return result.join('');
-    
 };
