@@ -4,13 +4,14 @@
  */
 var letterCombinations = function(digits) {
     let digit = digits.split('').reverse();
+    let stack = [];
     if (digit.length === 1) {
         return dial[digit];
     }
     if (digit.length === 0) {
-        return [];
+        return stack;
     }
-    let stack = [];
+    
     digit.forEach((char) => {
         stack.push(dial[char])
     })
