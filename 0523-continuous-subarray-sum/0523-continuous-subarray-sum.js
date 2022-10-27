@@ -19,3 +19,7 @@ var checkSubarraySum = function(nums, k) {
     return false;
 };
 
+test = [0,0,0,6];
+let k = 6;
+
+console.log(checkSubarraySum(test, k))
