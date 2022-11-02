@@ -15,9 +15,9 @@ var searchBST = function(root, val) {
     if (root.val === val) {
         return root;
     }
-    if (!root.left && !root.right) {
+   /* if (!root.left && !root.right) {
         return null;
-    }
+    }*/
     
     if (root.left) {
       let left = searchBST(root.left, val);
