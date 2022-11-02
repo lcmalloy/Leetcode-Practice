@@ -43,8 +43,6 @@ MinStack.prototype.top = function() {
  * @return {number}
  */
 MinStack.prototype.getMin = function() {
-    console.log(this.stack);
-    console.log(this.minStack);
     return this.min;
 };
 
