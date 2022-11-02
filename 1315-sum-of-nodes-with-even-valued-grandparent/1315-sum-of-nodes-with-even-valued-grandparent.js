@@ -31,7 +31,7 @@ var sumEvenGrandparent = function(root) {
                     sum += node.right.left.val;   
                 }
                 if (node.right.right) {
-                    sum += node.right?.right?.val;
+                    sum += node.right.right.val;
                 }
                 traverse(node.right);
             }
